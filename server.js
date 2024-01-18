@@ -4,13 +4,8 @@ const express = require('express');
 // Create an instance of Express
 const app = express();
 
-app.use((req, res, next) => {
-    res.setHeader('Cache-Control', 'no-store');
-    next();
-});
-
 // Define a route
-app.get('/', (req, res) => {
+app.get('/ping', (req, res) => {
   res.json({ message: 'Hello, Nayan here!',
   name: 'Nayan',
   country: 'USA',
@@ -21,10 +16,7 @@ app.get('/', (req, res) => {
   address: '123 Main St, Anytown USA',
   timestamp: Date.now()
 })
-}).get('/about', (req, res) => {
-  res.send('This is the About page');
 })
-
 // Start the server
 const port = 3000;
 app.listen(port, () => {
